@@ -91,6 +91,14 @@ module Enumerable
         arr
     end
     
+    def my_map_2(my_proc)
+        arr = []
+        self.my_each do |x|
+          arr.push my_proc.call x
+        end
+        arr
+    end
+    
     def my_inject index=0
         count = index
         self.my_each do|now|
@@ -98,6 +106,7 @@ module Enumerable
         end
         count
     end
+
 end
 
 #========================TESTING INSTRUCTIONS=============================
@@ -161,6 +170,14 @@ end
 #    array=[6,4,8,14,56,12,4,5,8]
 #    res = array.my_map do |n| n * 2 end
 #    p res
+#====================================================
+
+
+#============== MY MAP 2 METHOD (TAKES A PROC) ==========
+#   array=[6,4,8,14,56,12,4,5,8]
+#   my_proc = Proc.new do |n| n * 2 end
+#   res = array.my_map_2(my_proc)
+#   p res
 #====================================================
 
 
