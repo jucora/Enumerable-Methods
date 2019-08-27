@@ -122,9 +122,9 @@ module Enumerable
 end
 
 
-#========================TESTING INSTRUCTIONS=============================
-#Each test is organized in order, uncomment the test block to run the test
-#=========================================================================
+#========================TESTING INSTRUCTIONS======================================
+#Each test is organized in order, uncomment the test block to run the test you need
+#==================================================================================
 
 
 #=======MY EACH METHOD TEST========
