@@ -55,6 +55,17 @@ module Enumerable
         end
         res
     end
+    
+    def my_none
+      res = true
+        self.my_each do |x|
+            if yield x
+                res = false
+                break
+            end
+        end
+        res  
+    end
 end
 
 #========================TESTING INSTRUCTIONS=============================
@@ -96,5 +107,12 @@ end
 #==============MY ANY METHOD TEST======================
 #    array=[6,4,8,14,56,12,1,4]
 #    res = array.my_any do |n | n < 3 end
+#    print res
+#======================================================
+
+
+#==============MY NONE METHOD TEST=====================
+#    array=[6,4,8,14,56,12,4,1]
+#    res = array.my_none do |n | n % 2 == 1 end
 #    print res
 #======================================================
