@@ -28,6 +28,22 @@ module Enumerable
         end
         arr
     end
+    
+    def my_all
+        arr = []
+        resul=true
+        self.my_each do |x|
+            if yield x
+                arr.push x
+            end
+        end
+        if arr.length == self.length
+            resul = true
+        else
+            resul = false
+        end
+        resul
+    end
 end
 
 #========================TESTING INSTRUCTIONS=============================
@@ -58,3 +74,8 @@ end
 #    p result
 
 
+#===============MY ALL METHOD TEST=====================
+#    array=[6,2,4,14,6,12,4,3,8]
+#    res=array.my_all do |n| n % 2 == 0 end
+#    print res
+#======================================================
