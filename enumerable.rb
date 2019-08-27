@@ -44,6 +44,17 @@ module Enumerable
         end
         resul
     end
+    
+    def my_any
+        res = false
+        self.my_each do |x|
+            if yield x
+                res = true
+                break
+            end
+        end
+        res
+    end
 end
 
 #========================TESTING INSTRUCTIONS=============================
@@ -72,10 +83,18 @@ end
 #    array=[6,2,7,14,9,12,4,5,8]
 #    result = array.my_select do |n| n % 2 != 0 end
 #    p result
+#======================================================
 
 
 #===============MY ALL METHOD TEST=====================
 #    array=[6,2,4,14,6,12,4,3,8]
 #    res=array.my_all do |n| n % 2 == 0 end
+#    print res
+#======================================================
+
+
+#==============MY ANY METHOD TEST======================
+#    array=[6,4,8,14,56,12,1,4]
+#    res = array.my_any do |n | n < 3 end
 #    print res
 #======================================================
