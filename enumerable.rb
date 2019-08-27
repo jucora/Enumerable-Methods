@@ -66,6 +66,22 @@ module Enumerable
         end
         res  
     end
+    
+    def my_count value = nil
+        count = 0
+        self.my_each do |x|
+            if value != nil
+                if value == self[x]
+                    count += 1 
+                end
+            else 
+                if yield x
+                    count += 1 
+                end
+            end
+        end
+        count
+    end
 end
 
 #========================TESTING INSTRUCTIONS=============================
@@ -115,4 +131,12 @@ end
 #    array=[6,4,8,14,56,12,4,1]
 #    res = array.my_none do |n | n % 2 == 1 end
 #    print res
+#======================================================
+
+
+#==============MY COUNT METHOD TEST====================
+#   array=[6,4,8,14,56,12,4,5,8,8,8,8,4]
+#   res = array.my_count() do|n| n % 2 == 1  end
+#   res = array.my_count(4) do|n| end
+#   p res
 #======================================================
