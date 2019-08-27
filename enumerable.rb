@@ -90,6 +90,14 @@ module Enumerable
         end
         arr
     end
+    
+    def my_inject index=0
+        count = index
+        self.my_each do|now|
+            count = yield count, now
+        end
+        count
+    end
 end
 
 #========================TESTING INSTRUCTIONS=============================
@@ -98,7 +106,6 @@ end
 
 #=======MY EACH METHOD TEST========
 #   array=[6,4,8,14,56,12,4,5,8]
-
 #   array.my_each do |num|
 #        num *= 2
 #        print "#{num} " 
@@ -154,4 +161,13 @@ end
 #    array=[6,4,8,14,56,12,4,5,8]
 #    res = array.my_map do |n| n * 2 end
 #    p res
+#====================================================
+
+
+#=============== MY INJECT TEST =====================
+#   def multiply_els(array)
+#       array.my_inject(1) do |total, n|total * n end
+#   end
+#   array=[3,2,2,5]
+#   puts multiply_els(array)
 #====================================================
