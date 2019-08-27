@@ -82,6 +82,14 @@ module Enumerable
         end
         count
     end
+    
+    def my_map
+        arr = []
+        self.my_each do |x| 
+            arr.push yield x
+        end
+        arr
+    end
 end
 
 #========================TESTING INSTRUCTIONS=============================
@@ -98,7 +106,7 @@ end
 #==================================
 
 
-#=======MY EACH WITH INDEX METHOD TEST=====================
+#====== MY EACH WITH INDEX METHOD TEST ====================
 #    array=[6,4,8,14,56,12,4,5,8]
 #    array.my_each_with_index do |value, index|
 #        puts "Array index #{index} has the value #{value}"
@@ -106,37 +114,44 @@ end
 #==========================================================
 
 
-#===============MY SELECT METHOD TEST==================
+#============== MY SELECT METHOD TEST =================
 #    array=[6,2,7,14,9,12,4,5,8]
 #    result = array.my_select do |n| n % 2 != 0 end
 #    p result
 #======================================================
 
 
-#===============MY ALL METHOD TEST=====================
+#============== MY ALL METHOD TEST ====================
 #    array=[6,2,4,14,6,12,4,3,8]
 #    res=array.my_all do |n| n % 2 == 0 end
 #    print res
 #======================================================
 
 
-#==============MY ANY METHOD TEST======================
+#============= MY ANY METHOD TEST =====================
 #    array=[6,4,8,14,56,12,1,4]
 #    res = array.my_any do |n | n < 3 end
 #    print res
 #======================================================
 
 
-#==============MY NONE METHOD TEST=====================
+#============= MY NONE METHOD TEST ====================
 #    array=[6,4,8,14,56,12,4,1]
 #    res = array.my_none do |n | n % 2 == 1 end
 #    print res
 #======================================================
 
 
-#==============MY COUNT METHOD TEST====================
+#============= MY COUNT METHOD TEST ===================
 #   array=[6,4,8,14,56,12,4,5,8,8,8,8,4]
 #   res = array.my_count() do|n| n % 2 == 1  end
 #   res = array.my_count(4) do|n| end
 #   p res
 #======================================================
+
+
+#============== MY MAP METHOD TEST ==================
+#    array=[6,4,8,14,56,12,4,5,8]
+#    res = array.my_map do |n| n * 2 end
+#    p res
+#====================================================
