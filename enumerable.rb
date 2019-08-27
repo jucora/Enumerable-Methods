@@ -99,6 +99,18 @@ module Enumerable
         arr
     end
     
+    def my_map_3 my_proc = nil
+        arr = []
+        self.my_each do |x|
+            if my_proc == nil
+               arr.push yield x 
+            else
+                arr.push my_proc.call x
+            end
+        end
+        arr
+    end
+    
     def my_inject index=0
         count = index
         self.my_each do|now|
@@ -109,9 +121,11 @@ module Enumerable
 
 end
 
+
 #========================TESTING INSTRUCTIONS=============================
-#Each test is organized in order, uncomment the test block to see the test
+#Each test is organized in order, uncomment the test block to run the test
 #=========================================================================
+
 
 #=======MY EACH METHOD TEST========
 #   array=[6,4,8,14,56,12,4,5,8]
@@ -178,7 +192,16 @@ end
 #   my_proc = Proc.new do |n| n * 2 end
 #   res = array.my_map_2(my_proc)
 #   p res
-#====================================================
+#========================================================
+
+
+#============== MY MAP 3 METHOD (TAKES EITHER A PROC OR A BLOCK)=================
+#   array=[6,4,8,14,56,12,4,5,8]
+#   my_proc = Proc.new do |n| n * 2 end
+#   res = array.my_map_3 do |n| n * 3 end
+#   res = array.my_map_3(my_proc)
+#   p res
+#=================================================================================
 
 
 #=============== MY INJECT TEST =====================
