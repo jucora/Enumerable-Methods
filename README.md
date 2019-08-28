@@ -19,3 +19,4 @@ The project was completed using Ruby language.
 
 Authors
 @jucora
+https://github.com/jucora
