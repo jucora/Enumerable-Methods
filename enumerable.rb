@@ -1,6 +1,9 @@
-#======METHODS============
+#==========METHODS=============
 
 module Enumerable
+    
+#========my_each method======== 
+    
     def my_each
         i = 0
         self.size.times do
@@ -9,6 +12,8 @@ module Enumerable
         end
     self
     end
+    
+#========my_each_with_index method========   
     
     def my_each_with_index
         i = 0
@@ -19,6 +24,8 @@ module Enumerable
     self
     end
     
+#========my_select method========     
+    
     def my_select
         arr = []
         self.my_each do |x|
@@ -28,6 +35,8 @@ module Enumerable
         end
         arr
     end
+    
+#========my_all? method========     
     
     def my_all?
         arr = []
@@ -45,6 +54,8 @@ module Enumerable
         resul
     end
     
+#========my_any? method========     
+    
     def my_any?
         res = false
         self.my_each do |x|
@@ -55,6 +66,8 @@ module Enumerable
         end
         res
     end
+
+#========my_none? method========
     
     def my_none?
       res = true
@@ -67,21 +80,25 @@ module Enumerable
         res  
     end
     
+#========my_count method========     
+    
     def my_count value = nil
         count = 0
-        self.my_each do |x|
-            if value != nil
-                if value == self[x]
-                    count += 1 
+        self.my_each do|elem|
+            if value 
+                if elem == value 
+                    count += 1
                 end
-            else 
-                if yield x
-                    count += 1 
-                end
-            end
+            elsif block_given? 
+                count += 1 if yield elem
+            else
+                count = self.length
+            end 
         end
         count
     end
+    
+#========my_map method======== 
     
     def my_map
         arr = []
@@ -90,6 +107,8 @@ module Enumerable
         end
         arr
     end
+
+#========my_map_2 method(TAKES A PROC)========
     
     def my_map_2(my_proc)
         arr = []
@@ -98,6 +117,8 @@ module Enumerable
         end
         arr
     end
+    
+#========my_map_3 method(TAKES EITHER A PROC OR A BLOCK)========     
     
     def my_map_3 my_proc = nil
         arr = []
@@ -110,6 +131,8 @@ module Enumerable
         end
         arr
     end
+
+#========my_inject method======== 
     
     def my_inject index=0
         count = index
@@ -173,9 +196,10 @@ end
 
 
 #============= MY COUNT METHOD TEST ===================
-#   array=[6,4,8,14,56,12,4,5,8,8,8,8,4]
+#   array = [6,4,8,14,56,12,4,5,8,8,8,8,4,7,8,7,5]
+#   #res = array.my_count
+#   #res = array.my_count (8)
 #   res = array.my_count() do|n| n % 2 == 1  end
-#   res = array.my_count(4) do|n| end
 #   p res
 #======================================================
 
