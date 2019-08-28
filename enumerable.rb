@@ -29,7 +29,7 @@ module Enumerable
         arr
     end
     
-    def my_all
+    def my_all?
         arr = []
         resul=true
         self.my_each do |x|
@@ -45,7 +45,7 @@ module Enumerable
         resul
     end
     
-    def my_any
+    def my_any?
         res = false
         self.my_each do |x|
             if yield x
@@ -56,7 +56,7 @@ module Enumerable
         res
     end
     
-    def my_none
+    def my_none?
       res = true
         self.my_each do |x|
             if yield x
@@ -153,21 +153,21 @@ end
 
 #============== MY ALL METHOD TEST ====================
 #    array=[6,2,4,14,6,12,4,3,8]
-#    res=array.my_all do |n| n % 2 == 0 end
+#    res=array.my_all? do |n| n % 2 == 0 end
 #    print res
 #======================================================
 
 
 #============= MY ANY METHOD TEST =====================
 #    array=[6,4,8,14,56,12,1,4]
-#    res = array.my_any do |n | n < 3 end
+#    res = array.my_any? do |n | n < 3 end
 #    print res
 #======================================================
 
 
 #============= MY NONE METHOD TEST ====================
 #    array=[6,4,8,14,56,12,4,1]
-#    res = array.my_none do |n | n % 2 == 1 end
+#    res = array.my_none? do |n | n % 2 == 1 end
 #    print res
 #======================================================
 
